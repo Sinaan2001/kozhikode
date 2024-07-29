@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>TRAVELER - Free Travel Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+{% include "publicmenubar.html" %}
+<body>
+ 
+    <!-- Blog Start -->
+    <div class="container-fluid py-5">
+
+        <div class="container pt-5 pb-3">
+            {% for x in data %}
+            <div class="row pb-3" style="float: left;">
+                <div  class="col-lg-10 col-md-8 mb-4 pb-2">
+                    <div class="blog-item" style="width:300px;margin-left:50px">
+                        <div class="position-relative" >
+                            <img class="img-fluid w-100" src="{{x.Photo}}" alt="">
+
+                        </div>
+                        <div class="bg-white p-4">
+                            <div class="d-flex mb-2" > 
+                                <a class="text-primary text-uppercase text-decoration-none" href="">{{x.Restaurant_name}}</a>
+                                <span class="text-primary px-2"></span>
+                                <a class="text-primary text-uppercase text-decoration-none" href=""></a>
+                            </div>
+                            <a class="h5 m-0 text-decoration-none" href="">{{x.Speciality}}</a>
+                            <p class="card-text">Food id : {{x.Food_id}}</p>              
+                            <p class="card-text">Location:{{x.Location}}</p>
+                        </div>
+                    </div>
+                </div>                
+                
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+    <!-- Blog End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'lib/tempusdominus/js/moment.min.js' %}"></script>
+    <script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js' %}"></script>
+    <script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="{% static 'mail/jqBootstrapValidation.min.js' %}"></script>
+    <script src="{% static 'mail/contact.js' %}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+        
+
+    
+
+
+
+
+
+
+
+        
+
+
+

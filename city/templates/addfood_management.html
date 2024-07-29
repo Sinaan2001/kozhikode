@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>Registration</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <script>
+        function valid(){
+
+            if(form.restaurantname.value == "Choose the Restaurant")
+            {
+            alert('Please Select the Restaurant');
+		        form.restaurantname.focus();
+
+		    return false;
+            }
+
+            if(form.speciality.value == "")
+            {
+            alert('Please enter the Speciality');
+		        form.speciality.focus();
+
+		    return false;
+            }
+
+            if(form.photo.value == "")
+            {
+            alert('Please upload Photo');
+		        form.photo.focus();
+
+		    return false;
+            }
+
+            if(form.location.value == "")
+            {
+            alert('Please enter the Location');
+		        form.location.focus();
+
+		    return false;
+            }
+
+        return true;
+        }
+
+
+        
+    function imageupload()
+        {
+        var image = document.getElementById("img");
+        var size = parseFloat(image.files[0].size / (1024)); 
+
+        if(size>50) {
+
+            alert('Please select image size less than 50 kb');
+            form.photo.focus();
+
+        }
+    }
+    </script>
+
+</head>
+{% include "adminmenubar.html" %}
+<body>
+    <!-- Contact Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="text-center mb-3 pb-3">
+                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;"></h6>
+                <h1></h1>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-form bg-white" style="padding: 30px;">
+                        <div ></div>
+                        <form  id="" novalidate="novalidate" action="/addfood_managementdata/" method="POST"  enctype="multipart/form-data" name="form">
+                            {% csrf_token %}
+                            <div class="form-row">
+                                <div class="control-group col-sm-6">
+                                    <input type="text" class="form-control p-4"  name="foodid" value="{{fid}}"
+                                        readonly />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+
+                            </div>
+                            <div class="control-group">
+                                    <input type="text" name="restaurantname" class="form-control p-4" placeholder="name">
+                                       
+                                </div> 
+                            </div>
+
+                            <div class="control-group">
+                                <input type="text" class="form-control p-4"  placeholder="Speciality" name="speciality"
+                                    />
+                                <p class="help-block text-danger"></p>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="control-group col-sm-6">
+                                    <input type="file" class="form-control p-4" placeholder="Photo" name="photo"  id="img" onChange="imageupload();" 
+                                        />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="control-group col-sm-6">
+                                    <input type="text" class="form-control p-4"  placeholder="Location" name="location"   
+                                         />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+
+
+
+                            <div class="text-center">
+                                <button class="btn btn-primary py-3 px-4" type="submit" id="sendMessageButton" onclick="return valid();" >Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'lib/tempusdominus/js/moment.min.js' %}"></script>
+    <script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js' %}"></script>
+    <script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="{% static 'mail/jqBootstrapValidation.min.js' %}"></script>
+    <script src="{% static 'mail/contact.js' %}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>
